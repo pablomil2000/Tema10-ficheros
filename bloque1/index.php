@@ -1,0 +1,12 @@
+<p><a href="formularios/formu_ejer1.php">Ejer1-2-3-4</a></p>
+<p><a href="formularios/formu_ejer5.php">Ejer5</a></p>
+<p><a href="formularios/formu_ejer6.php">Ejer6</a></p>
+<p><a href="formularios/formu_ejer7.php">Ejer7</a></p>
+<p><a href="formularios/formu_ejer8.php">Ejer8</a></p>
+<p><a href="formularios/formu_ejer9.php">Ejer9</a></p>
+<p><a href="codigo/principal.php?ejer10">Ejer10</a></p>
+<p><a href="formularios/formu_ejer11.php">Ejer11</a></p>
+<p><a href="formularios/formu_ejer12.php">Ejer12</a></p>
+<p><a href="formularios/formu_ejer13.php">Ejer13</a></p>
+<p><a href="formularios/formu_ejer14.php">Ejer14</a></p>
+<p><a href="formularios/formu_ejer15.php">Ejer15</a></p>
