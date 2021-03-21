@@ -98,8 +98,10 @@ function empezar()
     $f2 = fopen("../ficheros/palabrasmal.txt", "r");
     aleatorio($f1, $f2, $vec, $vec2, $rand);
     echo "$vec2[$rand]<br>";
-    lineas($vec, $rand);
-    galleta($vec, $vec2, $rand);
+    arrelgar_palabra($vec, $rand, $p1);
+    arrelgar_palabra($vec2, $rand, $p2);
+    lineas($p1);
+    galleta($p1, $p2);
     formulario_palas();
 }
 
@@ -114,21 +116,27 @@ function aleatorio($f1, $f2, &$vec, &$vec2, &$num)
     $num = rand(0, $a - 2);
 }
 
-function lineas($vec, $rand)
+function lineas($vec)
 {
-
-    $var = strlen($vec[$rand]) - 2;
-
-
-    for ($i = 0; $i < $var; $i++) {
-        echo "_";
+    for ($i = 0; $i < strlen($vec); $i++) {
+        echo "_ ";
     }
 }
 
-function galleta($vec, $vec2, $rand)
+function arrelgar_palabra($vec, $num, &$p1)
 {
-    setcookie("solucion", $vec[$rand], time() + 3600, "/");
-    setcookie("solucion", $vec2[$rand], time() + 3600, "/");
+    $p1 = $vec[$num];
+    $p1v = str_split($p1);
+    $p1 = "";
+    for ($i = 0; $i < count($p1v) - 2; $i++) {
+        $p1 = $p1 . $p1v[$i];
+    }
+}
+
+function galleta($p1, $p2)
+{
+    setcookie("palabra", $p2, time() + 3600, "/");
+    setcookie("solucion", $p1, time() + 3600, "/");
 }
 
 function formulario_palas()
@@ -143,4 +151,41 @@ function formulario_palas()
     </form>
     </p>
 <?php
+}
+
+
+function palabras()
+{
+    $palabra = strtoupper($_POST['palabra']);
+
+    if ($palabra == $_COOKIE['solucion']) {
+        // funcion ganado
+        echo "has ganado";
+    } else {
+        // Funciones perdido
+        echo $_COOKIE['palabra']. "<br><br>";
+        lineas2($palabra);
+    }
+}
+
+function lineas2($palabra)
+{
+    $palabrac = $_COOKIE['solucion'];
+
+    $p1 = str_split($palabrac);
+    $p2 = str_split($palabra);
+    $t=count($p1);
+    $text ="";
+    for ($i = 0; $i < $t; $i++) {
+
+        if (isset($p1[$i]) && isset($p2[$i])) {
+            if ($p1[$i] == $p2[$i]) {
+                $text=$text."$p1[$i] ";
+            } else {
+                $text = $text . "_ ";
+            }
+        }
+    }
+    $final= str_pad($text, $t*2, "_ ");
+    echo $final;
 }

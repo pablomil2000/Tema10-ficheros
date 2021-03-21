@@ -69,6 +69,8 @@ include("funciones.php");
             salir();
           }elseif (isset($_GET['empezar'])){
             empezar();
+          }elseif (isset($_GET['palabras'])){
+            palabras();
           }
 
           ?>
