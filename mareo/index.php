@@ -39,7 +39,7 @@ include("codigo/funciones.php");
       <a class="navbar-brand js-scroll-trigger" href="index.php">Mareo</a>
       <?php
       if (isset($_SESSION['usuario'])) {
-        menu();
+        //menu
       }
       ?>
 
@@ -52,25 +52,7 @@ include("codigo/funciones.php");
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <?php
-          if (isset($_SESSION['usuario'])) {
-          ?>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="codigo/principal.php?empezar">Empezar</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="codigo/principal.php?salir">Salir</a>
-            </li>
-          <?php
-          } else {
-          ?>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="formularios/formu_login.php">Login</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="formularios/formu_registro.php">Registro</a>
-            </li>
-          <?php
-          }
+            menu();
           ?>
         </ul>
       </div>

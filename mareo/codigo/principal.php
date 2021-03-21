@@ -37,9 +37,7 @@ include("funciones.php");
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="../index.php">Mareo</a>
       <?php
-      if (isset($_SESSION['usuario'])) {
-        menu();
-      }
+        //menu
       ?>
       <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
@@ -63,17 +61,14 @@ include("funciones.php");
           <!--Código PHP!>-->
           <?php
 
-          if (isset($_GET['empezar'])) {
-            palabra_1();
-          } elseif (isset($_GET['letra'])) {
-            letra();
-          } elseif (isset($_GET['salir'])) {
-            session_destroy();
-            header('location:../');
-          } elseif (isset($_GET['registro'])) {
+          if (isset($_GET['registro'])) {
             registro();
-          } elseif (isset($_GET['login'])) {
+          }elseif (isset($_GET['login'])){
             login();
+          }elseif (isset($_GET['salir'])){
+            salir();
+          }elseif (isset($_GET['empezar'])){
+            empezar();
           }
 
           ?>
