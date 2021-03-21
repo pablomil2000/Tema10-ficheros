@@ -161,6 +161,7 @@ function palabras()
     if ($palabra == $_COOKIE['solucion']) {
         // funcion ganado
         echo "has ganado";
+        victoria();
     } else {
         // Funciones perdido
         echo $_COOKIE['palabra']. "<br><br>";
@@ -188,4 +189,33 @@ function lineas2($palabra)
     }
     $final= str_pad($text, $t*2, "_ ");
     echo $final;
+}
+
+function victoria(){
+    $usuario=$_SESSION["usuario"];
+
+    $f1=fopen("../ficheros/usuarios.txt", "r");
+    $f2=fopen("../ficheros/usuarios2.txt","w+");
+    $a=0;
+    while (!feof($f1)) {
+        $nombre = fgets($f1);
+        $contra = fgets($f1);
+        $puntos = (int)fgets($f1);
+        if ($nombre == $usuario . "\r\n") {
+            $puntos++;
+        }
+        if ($a==0) {
+            $a++;
+            fwrite($f2, $nombre);
+            fwrite($f2, $contra);
+            fwrite($f2, $puntos);
+        }else {
+            fwrite($f2, "\r\n" . $nombre);
+            fwrite($f2, $contra);
+            fwrite($f2, $puntos);
+        }
+        
+        
+        
+    }
 }
